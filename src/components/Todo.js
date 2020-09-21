@@ -2,7 +2,6 @@ import React from "react";
 
 const Todo = (props) => {
   const deleteHandler = () => {
-    console.log(props.todo)
     props.setTodos(props.todos.filter(el => el.id !== props.todo.id) )
   }
   const completeHandler = () => {
@@ -16,7 +15,7 @@ const Todo = (props) => {
   }
   return (
     <div className="todo">
-      <li className="todo-item">{props.text}</li>
+      <li className={`todo-item ${props.todo.completed ? "completed" : ''}`}>{props.text}</li>
       <button onClick={completeHandler} className="complete-btn">
         <i className="fas fa-check"></i>
       </button>
